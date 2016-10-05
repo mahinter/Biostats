@@ -1,20 +1,19 @@
 # Only slightly adapted from http://www.statmethods.net/advgraphs/probability.html
 # Plots a normal distribution in R, with shading of region of interest
 # e.g. plot.normal(100,20,lb=120) will show an IQ distribution centered at 100, with all values 1 SD or higher
-plot.normal<-function(mean=0,sd=1,lb=(mean-4*sd),ub=mean+4*sd,varlabel="") {
+plot.normal<-function(mean=0,sd=1,lb=(mean-4*sd),ub=mean+4*sd,varname="x") {
 
 x <- seq(-4,4,length=10000)*sd + mean
 hx <- dnorm(x,mean,sd)
 
 plot(x, hx, type="n", xlab=varlabel, ylab="",
   main="Normal Distribution", axes=FALSE)
-print(hx)
 i <- x >= lb & x <= ub
 lines(x, hx)
 polygon(c(lb,x[i],ub), c(0,hx[i],0), col="red") 
 
 area <- pnorm(ub, mean, sd) - pnorm(lb, mean, sd)
-result <- paste("P(",lb,"< ",varlabel," <",ub,") =",
+result <- paste("P(",lb,"< ",varname," <",ub,") =",
    signif(area, digits=3))
 mtext(result,3)
 axis(1, at=seq(mean-4*sd, mean+4*sd, sd), pos=0)
