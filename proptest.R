@@ -1,7 +1,9 @@
 # Exact code from https://qualityandinnovation.com/2015/03/16/one-proportion-z-test-in-r/
 
-z.proptest<- function(x,n,p=NULL,conf.level=0.95,alternative="less") {
-   ts.z <- NULL
+z.proptest<- function(x,n,p=NULL,conf.level=0.95,alternative="less")
+{
+   
+ts.z<-NULL
    cint <- NULL
    p.val <- NULL
       phat <- x/n
