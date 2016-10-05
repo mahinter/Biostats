@@ -6,7 +6,7 @@ plot.normal<-function(mean=0,sd=1,lb=(mean-4*sd),ub=mean+4*sd,varname="x") {
 x <- seq(-4,4,length=10000)*sd + mean
 hx <- dnorm(x,mean,sd)
 
-plot(x, hx, type="n", xlab=varlabel, ylab="",
+plot(x, hx, type="n", xlab=varname, ylab="",
   main="Normal Distribution", axes=FALSE)
 i <- x >= lb & x <= ub
 lines(x, hx)
