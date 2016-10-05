@@ -2,8 +2,7 @@
 
 z.proptest<- function(x,n,p=NULL,conf.level=0.95,alternative="less")
 {
-   
-ts.z<-NULL
+   ts.z<-NULL
    cint <- NULL
    p.val <- NULL
       phat <- x/n
