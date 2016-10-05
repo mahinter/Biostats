@@ -3,7 +3,8 @@
 # e.g. plot.normal(100,20,lb=120) will show an IQ distribution centered at 100, with all values 1 SD or higher
 plot.normal<-function(mean=0,sd=1,lb=(mean-4*sd),ub=mean+4*sd,varname="x") {
 
-x <- seq(-4,4,length=10000)*sd + mean
+numpoints<-10000 # number of points in distribution
+x <- seq(-4,4,length=numpoints)*sd + mean
 hx <- dnorm(x,mean,sd)
 
 plot(x, hx, type="n", xlab=varname, ylab="",
